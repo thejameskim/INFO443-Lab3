@@ -3,14 +3,17 @@
 
 // user import {PriorityQueue} from "./ts-heap"
 
-export interface Node {
-    x: number;
-    y: number;
+export interface Tweet {
+  id: number;
+  name: string;
+  data: string;
+  next: Tweet | null;
+  time: number
   }
   
 export type Tuple<T> = [T, number];
   
-export class PriorityQueue<T extends Node> {
+export class PriorityQueue<T extends Tweet> {
   heap: Tuple<T>[] = [];
 
   constructor() {}
@@ -36,18 +39,6 @@ export class PriorityQueue<T extends Node> {
     }
 
     return (this.heap = tmp);
-  }
-
-  has({ x, y }: T) {
-    const foundNode = this.heap.find(([val]) => val.x === x && val.y === y);
-
-    return !!foundNode;
-  }
-
-  get({ x, y }: T) {
-    const foundNode = this.heap.find(([val]) => val.x === x && val.y === y);
-
-    return foundNode && foundNode[0];
   }
 
   shift(priority: boolean) {
