@@ -76,7 +76,8 @@ class Twitter {
     }
 }
 
-// you can store your tweet in a linked-list-esque timeline
+// you can store your tweet in a linked-list-esque timeline, feel free to 
+// not use this data structure tho
 class Tweet {
     private data: string;
     private next: Tweet | null;
